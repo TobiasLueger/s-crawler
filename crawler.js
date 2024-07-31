@@ -79,7 +79,7 @@ const crawl = async (baseUrl, currentUrl) => {
 
 // Array of starting URLs
 const startUrls = [
-  'https://www.ksk-koeln.de',
+  // 'https://www.ksk-koeln.de',
   'https://example.com',  // Add more URLs as needed
 ];
 
