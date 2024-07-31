@@ -29,10 +29,10 @@ jobs:
 
       - name: Commit and Push results
         run: |
-          git config --local user.email "tobias-lueger@web.de"
-          git config --local user.name "TobiasLueger"
-          git add results.json
-          git commit -m "Add results.json"
+          git config --global user.name "github-actiuons[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Updating some file"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
