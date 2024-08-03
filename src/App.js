@@ -26,7 +26,8 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Sparkassen Pages</h1>
+      <h1>Sparkassen Komponenten</h1>
+      <p>Suchfilter um Komponenten die per create Funktion verbaut sind zu finden</p>
       <input
         type="text"
         className="filter-input"
