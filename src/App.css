@@ -1,0 +1,70 @@
+.App {
+  text-align: center;
+  margin: 20px;
+}
+
+.pages-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.page-item {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.page-item:hover {
+  scale: 1.01;
+}
+
+.page-item img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.page-item a {
+  display: block;
+  font-weight: bold;
+  margin: 10px 0;
+  text-decoration: none;
+  color: #007bff;
+  word-break: break-all;
+}
+
+.page-item ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.page-item ul li {
+  background-color: #f8f9fa;
+  margin: 5px 0;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.page-header {
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.filter-input {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-bottom: 20px;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.filter-input:hover, .filter-input:focus {
+  scale: 1.05;
+}
