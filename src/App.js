@@ -30,7 +30,7 @@ const App = () => {
       <input
         type="text"
         className="filter-input"
-        placeholder="Search tags..."
+        placeholder="Komponenten Suche..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
@@ -43,7 +43,7 @@ const App = () => {
               <img src={`logo.png`} alt="Placeholder" />
               
               <a href={url} target="_blank" rel="noopener noreferrer">{url}</a>
-              <p className="page-header">Funktionale Komponenten:</p>
+              <p className="page-header">Komponenten:</p>
               <ul>
                   {tags.slice(0, isExpanded ? tags.length : 5).map((tag) => (
                     <li key={tag}>{tag}</li>
