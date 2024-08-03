@@ -1,1 +1,1 @@
-# sparkassen-site-crawler
+# s-crawler
