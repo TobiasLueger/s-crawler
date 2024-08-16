@@ -3,6 +3,10 @@
   margin: 20px;
 }
 
+.unused-components {
+ margin: 4rem 0;
+}
+
 .pages-list {
   display: flex;
   flex-wrap: wrap;
