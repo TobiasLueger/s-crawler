@@ -7,6 +7,8 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [expandedItems, setExpandedItems] = useState({});
 
+  const [showScreen, setShowScreen] = useState(1);
+
   useEffect(() => {
     fetch('/result.json')
       .then(response => response.json())
@@ -53,51 +55,62 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Sparkassen Pages</h1>
-      <input
-        type="text"
-        className="filter-input"
-        placeholder="Search tags..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      <p>Ergebnisse: {filteredData.length} </p>
-      <div className="unused-components">
-        <h2>Unused Components</h2>
-        {unusedComponents.length > 0 ? (
-          <div>
-            {unusedComponents.map(component => (
-              <p key={component}>{component}</p>
-            ))}
-          </div>
-        ) : (
-          <p>All components are used on some page!</p>
-        )}
-      </div>
-      <div className="pages-list">
-        {filteredData.map(([url, tags]) => {
-          const isExpanded = expandedItems[url];
+      <header className="App-header">
+        <button onClick={() => setShowScreen(1)}>Verbaute Module</button>
+        <button onClick={() => setShowScreen(2)}>Ungenutzte Module</button>
+      </header>
+      {showScreen === 1 ?
+        <>
+          <h1>Sparkassen Seiten</h1>
+          <input
+            type="text"
+            className="filter-input"
+            placeholder="Search tags..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <p>Ergebnisse: {filteredData.length} </p>
+          <div className="pages-list">
+            {filteredData.map(([url, tags]) => {
+              const isExpanded = expandedItems[url];
 
-          return (
-            <div className="page-item" key={url}>
-              <img src={`logo.png`} alt="Placeholder" />
-              
-              <a href={url} target="_blank" rel="noopener noreferrer">{url}</a>
-              <p className="page-header">Funktionale Komponenten:</p>
-              <ul>
-                  {tags.slice(0, isExpanded ? tags.length : 5).map((tag) => (
-                    <li key={tag}>{tag}</li>
-                  ))}
-                </ul>
-                {tags.length > 5 && (
-                  <button onClick={() => toggleTags(url)}>
-                    {isExpanded ? 'Weniger anzeigen' : 'Mehr anzeigen'}
-                  </button>
-                )}
-            </div>
-          )
-        })}
-      </div>
+              return (
+                <div className="page-item" key={url}>
+                  <img src={`logo.png`} alt="Placeholder" />
+                  
+                  <a href={url} target="_blank" rel="noopener noreferrer">{url}</a>
+                  <p className="page-header">Funktionale Komponenten:</p>
+                  <ul>
+                      {tags.slice(0, isExpanded ? tags.length : 5).map((tag) => (
+                        <li key={tag}>{tag}</li>
+                      ))}
+                    </ul>
+                    {tags.length > 5 && (
+                      <button onClick={() => toggleTags(url)}>
+                        {isExpanded ? 'Weniger anzeigen' : 'Mehr anzeigen'}
+                      </button>
+                    )}
+                </div>
+              )
+            })}
+          </div>
+        </>
+      :
+        <>
+          <h1>Ungenutze Komponenten</h1>
+          <div className="unused-components">
+            {unusedComponents.length > 0 ? (
+              <div>
+                {unusedComponents.map(component => (
+                  <p key={component}>{component}</p>
+                ))}
+              </div>
+            ) : (
+              <p>Es werden im Moment alle Komponenten verwendet!</p>
+            )}
+          </div>
+        </>
+      }
     </div>
   );
 };
